@@ -62,8 +62,22 @@ Expected OUTPUT for this sample:
  */
 
 function getMoviesFreshness(movies) {
+  return movies.map(obj => {
+    let newObj = new Object();
+    newObj.name = obj.name;
+    newObj.rating = obj.rating;
+    if (obj.rating < 60) {
+      newObj.label = 'rotten';
+      return newObj;
+    }
+    if (obj.rating < 76) {
+      newObj.label = 'fresh';
+      return newObj;
+    }
+    newObj.label = 'certified fresh';
+    return newObj;
+  });
 }
-
 
 
 // DON'T TOUCH THIS!
